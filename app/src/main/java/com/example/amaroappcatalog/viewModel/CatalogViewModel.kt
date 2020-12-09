@@ -12,9 +12,9 @@ import retrofit2.Response
 
 class CatalogViewModel : ViewModel() {
 
-    private val _response = MutableLiveData<String>()
+    private val _response = MutableLiveData<ProductList>()
 
-    val response: LiveData<String>
+    val response: LiveData<ProductList>
         get() = _response
 
     init {
@@ -24,11 +24,11 @@ class CatalogViewModel : ViewModel() {
     private fun getCatalog() {
         AmaroCatalogApi.RETROFIT.getCatalog().enqueue(object: Callback<ProductList> {
             override fun onFailure(call: Call<ProductList>, t: Throwable) {
-                _response.value = "Failure " + t.message
+
             }
 
             override fun onResponse(call: Call<ProductList>, response: Response<ProductList>) {
-                _response.value = "Success: ${response.body()?.products?.size} products retrieved"
+                _response.value = response.body()
             }
 
         })
