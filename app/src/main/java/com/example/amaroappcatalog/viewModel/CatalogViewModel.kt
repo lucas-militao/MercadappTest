@@ -3,6 +3,8 @@ package com.example.amaroappcatalog.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.amaroappcatalog.model.Product
+import com.example.amaroappcatalog.model.ProductList
 import com.example.amaroappcatalog.network.AmaroCatalogApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,13 +22,13 @@ class CatalogViewModel : ViewModel() {
     }
 
     private fun getCatalog() {
-        AmaroCatalogApi.retrofitService.getProperties().enqueue(object: Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                _response.value = "Failure: " + t.message
+        AmaroCatalogApi.RETROFIT.getCatalog().enqueue(object: Callback<ProductList> {
+            override fun onFailure(call: Call<ProductList>, t: Throwable) {
+                _response.value = "Failure " + t.message
             }
 
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                _response.value = response.body()
+            override fun onResponse(call: Call<ProductList>, response: Response<ProductList>) {
+                _response.value = "Success: ${response.body()?.products?.size} products retrieved"
             }
 
         })

@@ -30,9 +30,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribeUI() {
         viewModel.response.observe(this, Observer {
-            apiTest.text = it
+
             if (it != null && it != "") {
                 Log.d("RESPONSE",it)
+                apiTest.text = it
             }
         })
     }
