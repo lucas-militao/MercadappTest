@@ -1,13 +1,12 @@
 package com.example.amaroappcatalog.view.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.amaroappcatalog.R
 import com.example.amaroappcatalog.model.Product
-import com.example.amaroappcatalog.model.ProductList
 import kotlinx.android.synthetic.main.catalog_item.view.*
 
 class CatalogListAdapter : RecyclerView.Adapter<CatalogListAdapter.ViewHolder>() {
@@ -15,7 +14,8 @@ class CatalogListAdapter : RecyclerView.Adapter<CatalogListAdapter.ViewHolder>()
     private var catalog = listOf<Product>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title = itemView.productName
+        val name = itemView.productName
+        val image = itemView.imageView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,7 +29,12 @@ class CatalogListAdapter : RecyclerView.Adapter<CatalogListAdapter.ViewHolder>()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = catalog[position]
-        holder.title.text = product.name
+        holder.name.text = product.name
+        Glide
+            .with(holder.itemView)
+            .load(product.image)
+            .centerCrop()
+            .into(holder.image)
     }
 
     fun updateList(list: List<Product>) {
