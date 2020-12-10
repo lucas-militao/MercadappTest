@@ -13,12 +13,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: CatalogViewModel by lazy {
-        ViewModelProviders.of(this).get(CatalogViewModel::class.java)
-    }
-
-    lateinit var catalogListAdapter: CatalogListAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,15 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupView() {
         setSupportActionBar(toolbar)
-
-        catalogListAdapter = CatalogListAdapter()
-
-        catalogList.adapter = catalogListAdapter
     }
 
-    private fun subscribeUI() {
-        viewModel.response.observe(this, Observer {
-            catalogListAdapter.updateList(it.products)
-        })
-    }
+    private fun subscribeUI() {}
 }

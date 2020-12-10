@@ -3,7 +3,6 @@ package com.example.amaroappcatalog.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.amaroappcatalog.model.Product
 import com.example.amaroappcatalog.model.ProductList
 import com.example.amaroappcatalog.network.AmaroCatalogApi
 import retrofit2.Call
