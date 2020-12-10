@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.amaroappcatalog.R
-import com.example.amaroappcatalog.databinding.FragmentCatalogBinding
 import com.example.amaroappcatalog.databinding.FragmentProductBinding
 
 class ProductFragment : Fragment() {

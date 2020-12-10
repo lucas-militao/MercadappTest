@@ -8,9 +8,20 @@
     <fragment
         android:id="@+id/catalogFragment"
         android:name="com.example.amaroappcatalog.view.fragment.CatalogFragment"
-        android:label="CatalogFragment" />
+        android:label="CatalogFragment" >
+        <action
+            android:id="@+id/action_catalogFragment_to_productFragment"
+            app:destination="@id/productFragment"
+            />
+    </fragment>
+
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.amaroappcatalog.view.fragment.ProductFragment"
-        android:label="ProductFragment" />
+        android:label="ProductFragment">
+        <argument
+            android:name="product"
+            app:argType="com.example.amaroappcatalog.model.Product"
+            />
+    </fragment>
 </navigation>

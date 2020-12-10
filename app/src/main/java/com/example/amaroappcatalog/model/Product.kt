@@ -1,7 +1,10 @@
 package com.example.amaroappcatalog.model
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Product(
     var name: String,
 
@@ -16,4 +19,4 @@ data class Product(
     var discountPercentage: String,
 
     var installments: String
-)
+): Parcelable

@@ -18,12 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupView()
-        subscribeUI()
     }
 
     private fun setupView() {
         setSupportActionBar(toolbar)
     }
-
-    private fun subscribeUI() {}
 }
