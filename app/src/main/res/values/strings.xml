@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AmaroAppCatalog</string>
+    <string name="app_name">Amaro</string>
     <string name="tamanhos">TAMANHOS:</string>
     <string name="installmentsAvaillable">%s no cartão de crédito</string>
 </resources>

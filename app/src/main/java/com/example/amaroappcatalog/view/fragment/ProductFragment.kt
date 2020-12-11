@@ -70,6 +70,8 @@ class ProductFragment : Fragment() {
         }
         adapter.updateList(availableSizes)
 
+        activity?.actionBar?.setHomeButtonEnabled(true)
+
         applySpaceBetweenItens()
     }
 
