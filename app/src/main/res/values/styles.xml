@@ -7,8 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Widget.MaterialComponents.Toolbar.Primary">
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <style parent="Widget.AppCompat.Toolbar" name="ToolbarTitle">
+        <item name="fontFamily">@font/allerta</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">20sp</item>
     </style>
+
+
 
 </resources>

@@ -19,7 +19,7 @@ class CatalogListAdapter(var onClick: (Product) -> Unit) : RecyclerView.Adapter<
     inner class ViewHolder(private var binding: CatalogItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product, onClick: (Product) -> Unit) {
             binding.productLayout.setOnClickListener { onClick(product) }
-            binding.productName.text = product.name
+            binding.productName.text = product.name.toLowerCase().capitalize()
             Glide
                 .with(itemView)
                 .load(product.image)

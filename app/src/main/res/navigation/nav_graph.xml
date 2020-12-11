@@ -23,5 +23,8 @@
             android:name="product"
             app:argType="com.example.amaroappcatalog.model.Product"
             />
+        <action
+            android:id="@+id/action_productFragment_to_catalogFragment"
+            app:destination="@id/catalogFragment" />
     </fragment>
 </navigation>
