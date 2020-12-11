@@ -1,6 +1,5 @@
 package com.example.amaroappcatalog.network
 
-import com.example.amaroappcatalog.model.Product
 import com.example.amaroappcatalog.model.ProductList
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
