@@ -1,10 +1,14 @@
 package com.example.amaroappcatalog.view.fragment
 
+import android.graphics.Paint
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.amaroappcatalog.R
 import com.example.amaroappcatalog.databinding.FragmentProductBinding
 import com.example.amaroappcatalog.model.Product
 
@@ -29,15 +33,26 @@ class ProductFragment : Fragment() {
     }
 
     private fun setupView() {
-//        Glide
-//            .with(this)
-//            .load(product.image)
-//            .circleCrop()
-//            .into(binding.productImage)
 
+        with(binding) {
+            Glide
+                .with(this@ProductFragment)
+                .load(product.image)
+                .centerCrop()
+                .into(this.productImage)
 
-        binding.productName.text = product.name.capitalize()
-        binding.productPrice.text = product.actualPrice
+            this.productName.text = product.name.capitalize()
+            this.productRegularPrice.text = product.regularPrice
+            if (product.discountPercentage != "") {
+                this.productRegularPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                this.productRegularPrice.setTextSize(TypedValue.COMPLEX_UNIT_SP, resources.getDimension(R.dimen.mediumTextSize))
+                this.productPromotionPrice.text = product.actualPrice
+                this.productInstallments2.text = resources.getString(R.string.installmentsAvaillable, product.installments)
+            } else {
+                this.productInstallments.text = resources.getString(R.string.installmentsAvaillable, product.installments)
+            }
+        }
+
     }
 
 }

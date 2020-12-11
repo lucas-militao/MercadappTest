@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -12,29 +13,85 @@
 
         <ImageView
             android:id="@+id/productImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="300sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/image_test" />
 
         <TextView
             android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/allerta"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productImage" />
+            app:layout_constraintTop_toBottomOf="@+id/productImage"
+            tools:text="Vestidinho preto básico para ir ali" />
 
         <TextView
-            android:id="@+id/productPrice"
+            android:id="@+id/productRegularPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/assistant_extralight"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productName"
+            tools:text="R$ 199,99" />
+
+        <TextView
+            android:id="@+id/productPromotionPrice"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/assistant_extralight"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productRegularPrice"
+            tools:text="R$ 199,00" />
+
+        <TextView
+            android:id="@+id/productInstallments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/allerta"
+            app:layout_constraintBottom_toTopOf="@+id/productInstallments2"
+            app:layout_constraintStart_toEndOf="@+id/productRegularPrice"
+            app:layout_constraintTop_toTopOf="@+id/productRegularPrice"
+            app:layout_constraintVertical_bias="0.51"
+            tools:text="3x R$ 100,00 no cartão de crédito" />
+
+        <TextView
+            android:id="@+id/productInstallments2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/allerta"
+            app:layout_constraintBottom_toBottomOf="@+id/productPromotionPrice"
+            app:layout_constraintStart_toEndOf="@+id/productPromotionPrice"
+            app:layout_constraintTop_toBottomOf="@+id/productInstallments"
+            tools:text="3x R$ 100,00 no cartão de crédito" />
+
+        <TextView
+            android:id="@+id/sizes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/assistant_bold"
+            android:text="@string/tamanhos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productInstallments2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
