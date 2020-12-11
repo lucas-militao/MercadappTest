@@ -5,16 +5,20 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.amaroappcatalog.R
 import com.example.amaroappcatalog.databinding.FragmentProductBinding
 import com.example.amaroappcatalog.model.Product
 import com.example.amaroappcatalog.model.Size
+import com.example.amaroappcatalog.view.activity.MainActivity
 import com.example.amaroappcatalog.view.adapter.SizesListAdapter
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class ProductFragment : Fragment() {
 
@@ -50,12 +54,22 @@ class ProductFragment : Fragment() {
             this.productRegularPrice.text = product.regularPrice
             if (product.discountPercentage != "") {
                 this.productRegularPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-                this.productRegularPrice.setTextSize(TypedValue.COMPLEX_UNIT_SP, resources.getDimension(R.dimen.mediumTextSize))
+                this.productRegularPrice.setTextSize(
+                    TypedValue.COMPLEX_UNIT_SP, resources.getDimension(
+                        R.dimen.mediumTextSize
+                    )
+                )
                 this.productInstallmentsOrDiscount.text = "- ${product.discountPercentage}"
                 this.productPromotionPrice.text = product.actualPrice
-                this.promotionProductInstallments.text = resources.getString(R.string.installmentsAvaillable, product.installments)
+                this.promotionProductInstallments.text = resources.getString(
+                    R.string.installmentsAvaillable,
+                    product.installments
+                )
             } else {
-                this.promotionProductInstallments.text = resources.getString(R.string.installmentsAvaillable, product.installments)
+                this.promotionProductInstallments.text = resources.getString(
+                    R.string.installmentsAvaillable,
+                    product.installments
+                )
             }
         }
 
@@ -76,12 +90,11 @@ class ProductFragment : Fragment() {
     }
 
     private fun applySpaceBetweenItens() {
-        binding.sizesAvailableList.addItemDecoration(object: RecyclerView.ItemDecoration() {
+        binding.sizesAvailableList.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(outRect: Rect, itemPosition: Int, parent: RecyclerView) {
                 outRect.left = 10
                 outRect.right = 50
             }
         })
     }
-
 }
