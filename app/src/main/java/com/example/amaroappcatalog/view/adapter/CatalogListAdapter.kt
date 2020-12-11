@@ -19,11 +19,12 @@ class CatalogListAdapter(var onClick: (Product) -> Unit) : RecyclerView.Adapter<
     inner class ViewHolder(private var binding: CatalogItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product, onClick: (Product) -> Unit) {
             binding.productLayout.setOnClickListener { onClick(product) }
-            binding.productName.text = product.name.toLowerCase().capitalize()
+            binding.productName.text = product.name.toLowerCase()
             Glide
                 .with(itemView)
                 .load(product.image)
                 .centerCrop()
+                .error(R.drawable.ic_broken_image)
                 .into(binding.imageView)
         }
     }
@@ -32,9 +33,7 @@ class CatalogListAdapter(var onClick: (Product) -> Unit) : RecyclerView.Adapter<
         return ViewHolder(CatalogItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun getItemCount(): Int {
-        return catalog.size
-    }
+    override fun getItemCount() = catalog.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = catalog[position]

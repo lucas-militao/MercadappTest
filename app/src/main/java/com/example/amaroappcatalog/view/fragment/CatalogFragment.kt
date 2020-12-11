@@ -42,13 +42,7 @@ class CatalogFragment : Fragment() {
 
     private fun setupView() {
         val manager = GridLayoutManager(activity, 2)
-        binding.catalog.addItemDecoration(object: RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect, itemPosition: Int, parent: RecyclerView) {
-                outRect.left = 10;
-                outRect.right = 35;
-                outRect.bottom = 5;
-            }
-        })
+        applySpaceBetweenItens()
         binding.catalog.layoutManager = manager
         catalogListAdapter = CatalogListAdapter { this.findNavController().navigate(CatalogFragmentDirections.actionCatalogFragmentToProductFragment(it)) }
         binding.catalog.adapter = catalogListAdapter
@@ -57,6 +51,16 @@ class CatalogFragment : Fragment() {
     private fun subscribeUI() {
         catalogViewModel.response.observe(viewLifecycleOwner, Observer {
             catalogListAdapter.updateList(it.products)
+        })
+    }
+
+    private fun applySpaceBetweenItens() {
+        binding.catalog.addItemDecoration(object: RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, itemPosition: Int, parent: RecyclerView) {
+                outRect.left = 10;
+                outRect.right = 35;
+                outRect.bottom = 5;
+            }
         })
     }
 }

@@ -18,5 +18,7 @@ data class Product(
     @Json(name = "discount_percentage")
     var discountPercentage: String,
 
-    var installments: String
+    var installments: String,
+
+    var sizes: List<Size>
 ): Parcelable

@@ -24,9 +24,11 @@
             android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/allerta"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productImage"
@@ -55,23 +57,23 @@
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productRegularPrice"
-            tools:text="R$ 199,00" />
+            tools:text="R$ 199,00"
+            android:text=""/>
 
         <TextView
-            android:id="@+id/productInstallments"
+            android:id="@+id/productInstallmentsOrDiscount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/allerta"
-            app:layout_constraintBottom_toTopOf="@+id/productInstallments2"
+            app:layout_constraintBottom_toTopOf="@+id/promotionProductInstallments"
             app:layout_constraintStart_toEndOf="@+id/productRegularPrice"
             app:layout_constraintTop_toTopOf="@+id/productRegularPrice"
-            app:layout_constraintVertical_bias="0.51"
             tools:text="3x R$ 100,00 no cartão de crédito" />
 
         <TextView
-            android:id="@+id/productInstallments2"
+            android:id="@+id/promotionProductInstallments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -79,19 +81,35 @@
             android:fontFamily="@font/allerta"
             app:layout_constraintBottom_toBottomOf="@+id/productPromotionPrice"
             app:layout_constraintStart_toEndOf="@+id/productPromotionPrice"
-            app:layout_constraintTop_toBottomOf="@+id/productInstallments"
-            tools:text="3x R$ 100,00 no cartão de crédito" />
+            app:layout_constraintTop_toBottomOf="@+id/productInstallmentsOrDiscount"
+            tools:text="3x R$ 100,00 no cartão de crédito"
+            android:text=""/>
 
         <TextView
             android:id="@+id/sizes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/assistant_bold"
             android:text="@string/tamanhos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productInstallments2" />
+            app:layout_constraintTop_toBottomOf="@+id/promotionProductInstallments" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sizesAvailableList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sizes" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
